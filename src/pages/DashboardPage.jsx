@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import './DashboardStyle.css'
 import { Outlet, useNavigate, Link } from 'react-router-dom'
-import { AuthContext } from '../Index'
+import { AuthContext } from '..'
 
 export const DashboardPage = () => {
     const style = {
