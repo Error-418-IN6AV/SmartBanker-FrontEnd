@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/Logo.jpg";
-import "./HomeStyle.css";
+//import "./HomeStyle.css";
 import { Navbar } from "../components/Navbar";
 
 export const HomePage = () => {

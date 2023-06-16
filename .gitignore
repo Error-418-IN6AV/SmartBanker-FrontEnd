@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+src/pages/Client
+
+src/pages/Login
+
+src/pages/Users
+
+src/pages/Worker
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

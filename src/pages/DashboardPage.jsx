@@ -51,6 +51,17 @@ export const DashboardPage = () => {
                                         </li>
                                     ) : <></>
                                 }
+                                {
+                                    dataUser.role == 'WORKER' ? (
+                                        <li>
+                                            <Link to='favorites'>
+                                                <button>
+                                                    <span className='text'> Favorites</span>
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ) : <></>
+                                }
                             </ul>
                             <ul className='side-menu top'>
                                 <li>

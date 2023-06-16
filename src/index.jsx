@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react'
 import App from './App'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { NotFound } from './pages/NotFound';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
@@ -11,7 +11,8 @@ import { UpdateClient } from './pages/Client/UpdateClient';
 import { WorkerPage } from './pages/Worker/WorkerPage';
 import { ListWorker } from './pages/Worker/ListWorker';
 import { UpdateWorker } from './pages/Worker/UpdateWorker';
-
+import { FavoritesPage } from './pages/Favorites/FavoritesPage'
+import { UpdateFavorites } from './pages/Favorites/UpdateFavorites'
 export const AuthContext = createContext();
 
 export const Index = () => {
@@ -30,7 +31,7 @@ export const Index = () => {
     {
       path: '/',
       element: <App />,
-      errorElement: <NotFound />,
+      errorElement: <NotFoundPage />,
       children: [
         {
           path: '/',
@@ -71,6 +72,21 @@ export const Index = () => {
                 {
                   path: 'updateWorker/:id',
                   element: <UpdateWorker/>
+                },
+              ]
+            },
+            {
+              path: 'updateFavorites/:id',
+              element: <UpdateFavorites/>
+            },
+            {
+              path: 'favorites',
+              element: <FavoritesPage></FavoritesPage>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <FavoritesPage></FavoritesPage>
                 },
               ]
             }

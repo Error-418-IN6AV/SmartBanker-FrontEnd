@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
