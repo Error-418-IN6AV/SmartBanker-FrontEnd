@@ -12,9 +12,22 @@ dist
 dist-ssr
 *.local
 
-src/pages/Client
+CardClient.jsx
+ClientPage.jsx
+ListClient.jsx
+UpdateClient.jsx
+CardWorker.jsx
+ListWorker.jsx
+UpdateWorker.jsx
+WorkerPage.jsx
+Compra.css
+ComprasPage.jsx
+CardUsers.jsx
+ListUsers.jsx
+UpdateUsers.jsx
+UsersPage.jsx
+src/pages/Login/LoginPage.jsx
 
-src/pages/Login
 
 src/pages/Users
 

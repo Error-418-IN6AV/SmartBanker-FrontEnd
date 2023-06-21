@@ -52,11 +52,33 @@ export const DashboardPage = () => {
                                     ) : <></>
                                 }
                                 {
-                                    dataUser.role == 'WORKER' ? (
+                                    dataUser.role == 'CLIENT' ? (
                                         <li>
                                             <Link to='favorites'>
                                                 <button>
                                                     <span className='text'> Favorites</span>
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ) : <></>
+                                }
+                                {
+                                    dataUser.role == 'CLIENT' ? (
+                                        <li>
+                                            <Link to='products'>
+                                                <button>
+                                                    <span className='text'> Products to buy</span>
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ) : <></>
+                                }
+                                {
+                                    dataUser.role == 'CLIENT' ? (
+                                        <li>
+                                            <Link to='compra'>
+                                                <button>
+                                                    <span className='text'> Bill</span>
                                                 </button>
                                             </Link>
                                         </li>

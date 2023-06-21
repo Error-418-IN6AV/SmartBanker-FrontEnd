@@ -13,6 +13,9 @@ import { ListWorker } from './pages/Worker/ListWorker';
 import { UpdateWorker } from './pages/Worker/UpdateWorker';
 import { FavoritesPage } from './pages/Favorites/FavoritesPage'
 import { UpdateFavorites } from './pages/Favorites/UpdateFavorites'
+import { ProductAndServices } from './pages/ProductsCompra/ProductAndServices';
+import { ComprasPage } from './pages/Bill/ComprasPage';
+import {BillPage} from './pages/Bill/BillPage';
 export const AuthContext = createContext();
 
 export const Index = () => {
@@ -87,6 +90,39 @@ export const Index = () => {
                   path: '',
                   exact: true,
                   element: <FavoritesPage></FavoritesPage>
+                },
+              ]
+            },
+            {
+              path: 'products',
+              element: <ProductAndServices></ProductAndServices>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <ProductAndServices></ProductAndServices>
+                },
+              ]
+            },
+            {
+              path: 'compras/:id',
+              element: <ComprasPage></ComprasPage>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <ComprasPage></ComprasPage>
+                },
+              ]
+            },
+            {
+              path: 'compra',
+              element: <BillPage></BillPage>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <BillPage></BillPage>
                 },
               ]
             }
