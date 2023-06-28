@@ -20,6 +20,7 @@ export const LoginPage = () => {
       [e.target.name]: e.target.value
     })
   }
+  
 
   const logIn = async (e) => {
     try {

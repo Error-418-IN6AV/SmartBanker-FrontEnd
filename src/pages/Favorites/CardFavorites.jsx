@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const CardFavorites = ({noCuenta, apodo, get, deleteFavorite}) => {
+export const CardFavorites = ({nocuenta, apodo, get, deleteFavorite}) => {
   return (
     <>
     <div className="card m-3 g-0" style={{ maxWidth: '20rem', maxHeight: '30rem' }}>
         <div className="card-body">
-          <h5 className="card-text">Numero de Cuenta : {noCuenta}  </h5> 
+          <h5 className="card-text">Numero de Cuenta : {nocuenta}  </h5> 
           <h5 className="card-text">Apodo :{apodo}</h5>
           <hr className="my-4" />
           <div className="d-grid mb-2">

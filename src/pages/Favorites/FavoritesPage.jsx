@@ -13,10 +13,10 @@ export const FavoritesPage = () => {
     const OpenUpdate = (id) => setOpenUpdate(true);
     const close = () => setOpen(false);
     const navigate = useNavigate();
-    /* const headers = {
+    const headers = {
       'Content-Type': 'application/json',
       'Authorization': localStorage.getItem('token')
-    } */
+    } 
 
     const form = {
         position: 'absolute',
@@ -32,7 +32,7 @@ export const FavoritesPage = () => {
 
     const gets = async()=>{
         try{
-          const { data } = await axios('http://localhost:3000/favorites/gets')
+          const { data } = await axios('http://localhost:3000/favorites/gets', {headers: headers})
           if(data.favorites){
             setFavorites(data.favorites)
             console.log(data.favorites)
@@ -46,10 +46,10 @@ export const FavoritesPage = () => {
       const add = async () => {
         try {
             let favorites = {
-                noCuenta: document.getElementById('inputNoCuenta').value,
+                nocuenta: document.getElementById('inputNoCuenta').value,
                 apodo: document.getElementById('inputApodo').value
             }
-            const { data } = await axios.post('http://localhost:3000/favorites/add', favorites/* , {headers: headers} */)
+            const { data } = await axios.post('http://localhost:3000/favorites/add' , favorites  , {headers: headers} )
             alert(data.message)
             gets()
         } catch (err) {
@@ -61,7 +61,7 @@ export const FavoritesPage = () => {
         try{
           let confirmDelete = confirm('Are you sure to delete this favorite?')
             if(confirmDelete){
-                const { data } = await axios.delete(`http://localhost:3000/favorites/delete/${_id}`/* ,  {headers: headers} */)
+                const { data } = await axios.delete(`http://localhost:3000/favorites/delete/${_id}`,  {headers: headers} )
                 gets()
                 alert(`${data.message}: ${data.deletedFavorite}`)
             }
@@ -133,11 +133,11 @@ export const FavoritesPage = () => {
    
       <div className="row g-0 justify-content-center">
         {
-          favorites.map(({ _id, noCuenta, apodo}, i) => {
+          favorites.map(({ _id, nocuenta, apodo}, i) => {
             return (
               <CardFavorites
                 key={i}
-                noCuenta={noCuenta}
+                nocuenta={nocuenta}
                 apodo={apodo}
                 get={() =>updatePage(_id)}
                 deleteFavorite={() => deleteFavorite(_id)}

@@ -8,10 +8,10 @@ export const UpdateFavorites = () => {
   const [favorite, setFavorite] = useState({});
   const [favorites, setFavorites] = useState({});
   const { id } = useParams();
-  /* const headers = {
+  const headers = {
     'Content-Type': 'application/json',
     'Authorization': localStorage.getItem('token')
-  } */
+  } 
 
   const editar = ()=>{
     update()
@@ -23,18 +23,18 @@ export const UpdateFavorites = () => {
 
 }
 
-const getUsers = async()=>{
+/* const getUsers = async()=>{
     try{
         const { data } = await axios('http://localhost:3000/user/get')
         setUsers(data.users)
     }catch(err){
         console.log(err);
     }
-}
+} */
 
 const gets = async () => {
   try {
-    const { data } = await axios('http://localhost:3000/favorites/gets'/* , { headers: headers } */)
+    const { data } = await axios('http://localhost:3000/favorites/gets' , { headers: headers })
     if (data.favorites) {
       setFavorite(data.favorites)
       console.log(data.favorites)
@@ -48,7 +48,7 @@ const gets = async () => {
 
     const get = async()=>{
         try{
-          const { data } = await axios(`http://localhost:3000/favorites/get/${id}`/* ,{ headers: headers } */)
+          const { data } = await axios(`http://localhost:3000/favorites/get/${id}` ,{ headers: headers })
           setFavorite(data.favorite)
         }catch(err){
           console.error(err);
@@ -58,19 +58,23 @@ const gets = async () => {
       const update = async()=>{
         try{
           let updatedFavorite = {
-            noCuenta: document.getElementById('noCuenta').value,
+            nocuenta: document.getElementById('noCuenta').value,
             apodo: document.getElementById('apodo').value,
           }
-          const { data } = await axios.put(`http://localhost:3000/favorites/update/${id}`,updatedFavorite/* ,{ headers: headers } */)
-          console.log(data)
+          const { data } = await axios.put(`http://localhost:3000/favorites/update/${id}`,updatedFavorite ,{ headers: headers })
+          alert(data.message)
           gets()
-        }catch(err){
-          console.error(err)
+        }catch (err) {
+          if (err.response && err.response.data && err.response.data.message) {
+            alert(err.response.data.message)
+          } else {
+            alert('Error occurred while updating favorite.')
+          }
         }
       }
     
       useEffect(() => {
-        get(); getUsers();
+        get(); /* getUsers(); */
       }, [])
 
   return (
@@ -82,7 +86,7 @@ const gets = async () => {
           <div  className="card-body p-4 p-sm-5">
             <form>
                 <div className="form-floating mb-3" style={{ width: '300px' }}>
-                <input defaultValue={favorite.noCuenta} type="text" name="noCuenta" className="form-control" id="noCuenta" placeholder="." />
+                <input defaultValue={favorite.nocuenta} type="text" name="noCuenta" className="form-control" id="noCuenta" placeholder="." />
                   <label htmlFor="floatingInput">noCuenta</label>
                 </div>
                 <div className="form-floating mb-3" style={{ width: '300px' }}>
