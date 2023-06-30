@@ -50,6 +50,7 @@ export const ComprasPage = () => {
             lastname: document.getElementById('lastname').value,
             nit: document.getElementById('nit').value,  
             ciudad: document.getElementById('ciudad').value,  
+            cantidad: document.getElementById('cantidad').value,  
             product:products._id
           }
           const { data } = await axios.post('http://localhost:3000/compra/add', compra, { headers: headers })
@@ -100,6 +101,12 @@ export const ComprasPage = () => {
                 <label htmlFor="floatingInput">LastName</label>
               </div>
               </div>
+              <div className="form-group col-sm-4">
+              <div className="form-floating mb-3">
+                <input id="cantidad" type="number" defaultValue = '1' className="form-control"  placeholder="." aria-label="Card Holder" aria-describedby="basic-addon1"></input>
+                <label htmlFor="floatingInput">Cantidad</label>
+              </div>
+              </div>
               <div className="form-group col-sm-8">
               <div className="form-floating mb-3">
                 <input id="ciudad" type="text" className="form-control"  placeholder="." aria-label="Card Holder" aria-describedby="basic-addon1"></input>
@@ -108,10 +115,11 @@ export const ComprasPage = () => {
               </div>
               <div className="form-group col-sm-4">
               <div className="form-floating mb-3">
-                <input id="nit" type="number" defaultValue = '        ' className="form-control" maxLength="8" placeholder="." aria-label="Card Holder" aria-describedby="basic-addon1"></input>
+                <input id="nit" type="text"  className="form-control" maxLength="8" placeholder="." aria-label="Card Holder" aria-describedby="basic-addon1"></input>
                 <label htmlFor="floatingInput">Nit</label>
               </div>
               </div>
+
               <div className="d-grid">
                   <button onClick={() =>logOut()} className="btn btn-outline-primary" type="submit"  ><i className="fa-solid fa-money-check-dollar"></i> Comprar</button>
                 </div>
