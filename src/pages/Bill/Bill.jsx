@@ -3,13 +3,13 @@ import { Paper, Typography, Grid, Table, TableHead, TableBody, TableCell, TableR
 import Logo from '../../assets/Logo.jpg'
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-
+import './Bill.css'
 export const Bill = ({ _id, user, nit, producto, precioInicial, descuento, total, fecha,name,lastname,ciudad,cantidad }) => {
 
  const [loader,setLoader] = useState(false)
 
  const getPdf = ()=>{
-  const input = document.querySelectorAll('.pdf')
+  const input = document.querySelector(`.hola${_id}`)
   setLoader(true)
   html2canvas(input).then((canvas)=>{
     const imgWith = 208;
@@ -25,59 +25,108 @@ export const Bill = ({ _id, user, nit, producto, precioInicial, descuento, total
   return (
     <>
   
-    <Paper className='pdf' style={{ padding: '42px' }}>
-      <Grid container spacing={2}>
-        <img src={Logo} alt="Logo" style={{ position: 'absolute', top: '50px', right: '50px', width: '110px', height: '110px' }} />
-        <Grid item xs={12}>
-          <Typography variant="h4" style={{ fontSize: '18px', fontWeight: 'bold' }}>NO. {_id}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h6" style={{ fontSize: '18px' }}>Name: {name} {lastname}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h6" style={{ fontSize: '18px' }}>NIT: {nit}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h6" style={{ fontSize: '18px' }}>CITY: {ciudad}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h6" style={{ fontSize: '18px' }}>DATE: {fecha}</Typography>
-        </Grid>
 
-        <Grid item xs={12}>
-          <Table>
-            <TableHead>
-              <TableRow style={{ fontWeight: 'bolder', backgroundColor: '#898381' }}>
-                <TableCell style={{ fontWeight: 'bolder', background: '#898381' }}>Producto</TableCell>
-                <TableCell style={{ fontWeight: 'bolder', background: '#898381' }}>Precio</TableCell>
-                <TableCell style={{ fontWeight: 'bolder', background: '#898381' }}>Cantidad</TableCell>
-                <TableCell style={{ fontWeight: 'bolder', background: '#898381' }}>Descuento</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>{producto}</TableCell>
-                <TableCell>Q.{precioInicial}.00</TableCell>
-                <TableCell>{cantidad}</TableCell>
-                <TableCell>{descuento}%</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h6" style={{ fontWeight: 'bolder' }}>Total Amount: Q. {total}.00</Typography>
-        </Grid>
-
-
-      </Grid>
-
-    </Paper>
-    <div className="d-grid col-2 mx-auto">
-           <button onClick={getPdf} 
-           disabled={!(loader===false)}
-           className="btn btn-info" type="submit">
+<div className="container mt-6 mb-7">
+  <div className="row justify-content-center">
+    <div className="col-lg-12 col-xl-7">
+      <div className="card">
+      <div  className={`hola${_id}`}>
+        <div className="card-body p-5">
+          <h2>Hey {name} !</h2>
+          <p className="fs-sm">
+            This is the receipt for a payment of <strong>{total}</strong> (USD)
+          </p>
+          <div className="border-top border-gray-200 pt-4 mt-4">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="text-muted mb-2">Payment No.</div>
+                <strong>{_id}</strong>
+              </div>
+              <div className="col-md-6 text-md-end">
+                <div className="text-muted mb-2">Payment Date</div>
+                <strong>{new Date(fecha).toLocaleString()}</strong>
+              </div>
+            </div>
+          </div>
+          <div className="border-top border-gray-200 mt-4 py-4">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="text-muted mb-2">Client</div>
+                <strong>{name} {lastname}</strong>
+                <p className="fs-sm">
+                 {ciudad}
+                  <br />
+                  <a href="#!" className="text-purple">
+                   {nit}
+                  </a>
+                </p>
+              </div>
+              <div className="col-md-6 text-md-end">
+                <div className="text-muted mb-2">Payment To</div>
+                <strong>Smart Banker</strong>
+                <p className="fs-sm">
+                 {ciudad}
+                  <br />
+ 
+                </p>
+              </div>
+            </div>
+          </div>
+          <table className="table border-bottom border-gray-200 mt-3">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  className="fs-sm text-dark text-uppercase-bold-sm px-0"
+                >
+                  Description
+                </th>
+                <th
+                  scope="col"
+                  className="fs-sm text-dark text-uppercase-bold-sm text-end px-0"
+                >
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-0">{producto}</td>
+                <td className="text-end px-0">${precioInicial}.00</td>
+              </tr>
+              <tr>
+                <td className="px-0">Descuento</td>
+                <td className="text-end px-0">{descuento}%</td>
+              </tr>
+              <tr>
+                <td className="px-0">Cantidad</td>
+                <td className="text-end px-0">{cantidad}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="mt-5">
+            <div className="d-flex justify-content-end">
+              <p className="text-muted me-3">Subtotal:</p>
+              <span>${precioInicial}.00</span>
+            </div>
+            <div className="d-flex justify-content-end">
+              <p className="text-muted me-3">Discount:</p>
+              <span>{descuento}%</span>
+            </div>
+            <div className="d-flex justify-content-end mt-3">
+              <h5 className="me-3">Total:</h5>
+              <h5 className="text-success">${total} USD</h5>
+            </div>
+          </div>
+        </div>
+        </div>
+        <a
+         onClick={getPdf} 
+       disabled={!(loader===false)}
+          className="btn btn-dark btn-lg card-footer-btn justify-content-center text-uppercase-bold-sm hover-lift-light"
+        >
             <Typography variant="h6" style={{ fontWeight: 'bolder' }}>
-            Download <i class="fa-solid fa-file-arrow-down"></i>
+            Download <i className="fa-solid fa-file-arrow-down"></i>
             </Typography>                       
              <lord-icon                  
              src="https://cdn.lordicon.com/pqxdilfs.json"
@@ -85,8 +134,14 @@ export const Bill = ({ _id, user, nit, producto, precioInicial, descuento, total
             colors="outline:#131432,primary:#606874,secondary:#08a88a,tertiary:#ebe6ef"
             style={{width:"100px",height:"100px"}}>                   
              </lord-icon> 
-           </button>
-        </div> 
+
+  
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
     </>
   );
 };
