@@ -9,6 +9,9 @@ export const Bill = ({ _id, user, nit, producto, precioInicial, descuento, total
  const [loader,setLoader] = useState(false)
 
  const getPdf = ()=>{
+
+
+  
   const input = document.querySelector(`.hola${_id}`)
   setLoader(true)
   html2canvas(input).then((canvas)=>{
