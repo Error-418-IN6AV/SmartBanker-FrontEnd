@@ -10,9 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
+    "@mui/styled-engine": "^5.13.2",
     "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "lord-icon-element": "^4.1.1",
+    "lottie-web": "^5.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2"
