@@ -101,7 +101,7 @@ export const FavoritesPage = () => {
         aria-describedby="modal-modal-description"
       >
 
-        <Box sx={form}>
+        <Box sx={form} style={{ marginLeft: '10vw' }}>
         <div  className="card-body p-4 p-sm-5" >
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Agregar Favorito

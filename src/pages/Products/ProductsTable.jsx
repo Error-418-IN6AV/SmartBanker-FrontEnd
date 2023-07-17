@@ -78,7 +78,7 @@ export const ProductsTable = () => {
                     Add Product <i className="fa-solid fa-cart-plus"></i>
                 </button>
 
-                <div className="modal fade top-50 start-50 translate-middle" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade top-50 start-50 translate-middle" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ marginLeft: '11vw' }}>
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -86,7 +86,7 @@ export const ProductsTable = () => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <div className="mb-3">
+                                <div className="mb-3" >
                                     <lord-icon
                                         src="https://cdn.lordicon.com/pqxdilfs.json"
                                         trigger="loop"
@@ -110,7 +110,7 @@ export const ProductsTable = () => {
                                         <input type="Number" className="form-control" id="inputPrice" required />
                                     </div>
                                     <div>
-                                        <label htmlFor="inputDescuento" defaultValue="0" className="form-label">Descuento</label>
+                                        <label htmlFor="inputDescuento" defaultValue="0" className="form-label">Discount</label>
                                         <input type="Number" className="form-control" id="inputDescuento" required />
                                     </div>
                                     <div>
@@ -136,8 +136,8 @@ export const ProductsTable = () => {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>descuento</th>
-                        <th>total</th>
+                        <th>Discount</th>
+                        <th>Total</th>
                         <th>Stock</th>
                         <th>Update</th>
                         <th>Delete</th>

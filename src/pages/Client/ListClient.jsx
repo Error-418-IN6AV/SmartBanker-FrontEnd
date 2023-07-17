@@ -109,7 +109,7 @@ export const ListClient = () => {
           }
         </div>
       </main>
-      <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ marginLeft: '6vw' }}>
+      <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ marginLeft: '11vw' }}>
         <div className="modal-dialog">
           <div className="modal-content">
             <h3 className="text-center modal-title">CLIENT</h3>

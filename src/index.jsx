@@ -26,6 +26,7 @@ import { BillPage } from './pages/Bill/BillPage';
 import { ComprasPage } from './pages/compra/ComprasPage';
 import { DepositPage } from './pages/Deposit/DepositPage';
 import { Images } from './pages/Products/Images';
+import { BillDeposit } from './pages/Deposit/BillDeposit';
 
 export const AuthContext = createContext();
 
@@ -181,6 +182,10 @@ export const Index = () => {
             {
               path: 'deposito',
               element: <DepositPage></DepositPage>
+            },
+            {
+              path: 'billDeposit/:id', 
+              element: <BillDeposit></BillDeposit>
             },
             {
               path: 'images/:id',

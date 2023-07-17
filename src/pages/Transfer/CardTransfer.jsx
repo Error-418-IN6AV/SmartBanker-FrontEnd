@@ -39,8 +39,10 @@ export const CardTransfer = ({ _id, nocuenta, dpi, date, monto, gettranssfer }) 
 
   return (
     <>
-      <div className="card m-3 g-0" style={{ maxWidth: '19rem', maxHeight: '25rem' }}>
+      <div className="card m-3 g-0" style={{ maxWidth: '20rem', maxHeight: '25rem' }}>
         <div className="card-body" style={{ backgroundColor: '#E6F4DE' }}>
+          <h5 className='card-title'>Id:</h5>
+          <p className="card-title">{_id}</p>
           <h5 className="card-title">Account Number:</h5>
           <p className="card-title">{nocuenta}</p>
           <h5 className="card-title">DPI:</h5>

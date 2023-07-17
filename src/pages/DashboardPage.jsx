@@ -4,9 +4,7 @@ import { Outlet, useNavigate, Link } from 'react-router-dom'
 import { AuthContext } from '../Index'
 
 export const DashboardPage = ({ _id }) => {
-    const style = {
-        backgroundColor: '#D6D9D9'
-    }
+
     const { setLoggedIn, dataUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -21,7 +19,7 @@ export const DashboardPage = ({ _id }) => {
 
     return (
         <>
-            <div style={style}>
+            <div >
                 <div id="body">
                     <section id='sidebar'>
                         <div className='text-center'>
@@ -118,28 +116,6 @@ export const DashboardPage = ({ _id }) => {
                                     ) : <></>
                                 }
                                 {
-                                    dataUser.role == 'ADMIN' ? (
-                                        <li>
-                                            <Link to='products'>
-                                                <button>
-                                                    <span className='text'>Product and services</span>
-                                                </button>
-                                            </Link>
-                                        </li>
-                                    ) : <></>
-                                }
-                                {
-                                    dataUser.role == 'WORKER' ? (
-                                        <li>
-                                            <Link to='products'>
-                                                <button>
-                                                    <span className='text'>Product and services</span>
-                                                </button>
-                                            </Link>
-                                        </li>
-                                    ) : <></>
-                                }
-                                {
                                     dataUser.role == 'CLIENT' ? (
                                         <li>
                                             <Link to='compra'>
@@ -178,6 +154,13 @@ export const DashboardPage = ({ _id }) => {
                                     <button>
                                         <span className='text'>Welcome: {dataUser.username}, {dataUser.role}</span>
                                     </button>
+                                </li>
+                                <li>
+                                    <Link to=''>
+                                        <button>
+                                            <span className='text'>Setting</span>
+                                        </button>
+                                    </Link>
                                 </li>
                                 <li>
                                     <button onClick={logOut}>

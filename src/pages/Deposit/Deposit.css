@@ -1,0 +1,230 @@
+/* -------------------------------------
+    GLOBAL
+    A very basic CSS reset
+------------------------------------- */
+
+* {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Let's make sure all tables have defaults */
+.deposit td {
+    vertical-align: top;
+}
+
+/* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+
+
+.containerde {
+    display: block !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    /* makes it centered */
+    clear: both !important;
+}
+
+.content2 {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+}
+
+/* -------------------------------------
+    HEADER, footer2, MAIN
+------------------------------------- */
+.main2 {
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 3px;
+}
+
+.content2-wrap {
+    padding: 20px;
+}
+
+.content2-block {
+    padding: 0 0 20px;
+}
+
+
+
+.footer2 {
+    width: 100%;
+    clear: both;
+    color: #999;
+    padding: 20px;
+}
+
+.footer2 a {
+    color: white;
+}
+
+.footer2 p,
+.footer2 a,
+.footer2 unsubscribe,
+.footer2 td {
+    font-size: 12px;
+}
+
+/* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+h1,
+h2,
+h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #000;
+    margin: 40px 0 0;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+p,
+ul,
+ol {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+p li,
+ul li,
+ol li {
+    margin-left: 5px;
+    list-style-position: inside;
+}
+
+/* -------------------------------------
+    LINKS & BUTTONS
+------------------------------------- */
+
+
+
+/* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
+.last {
+    margin-bottom: 0;
+}
+
+.first {
+    margin-top: 0;
+}
+
+.aligncenter2 {
+    text-align: center;
+}
+
+.alignright2 {
+    text-align: right;
+}
+
+.alignleft2 {
+    text-align: left;
+}
+
+.clear {
+    clear: both;
+}
+
+/* -------------------------------------
+    ALERTS
+    Change the class depending on warning email, good email or bad email
+------------------------------------- */
+
+
+/* -------------------------------------
+    invoice2
+    Styles for the billing deposit
+------------------------------------- */
+.invoice2 {
+    margin: 40px auto;
+    text-align: left;
+    width: 80%;
+}
+
+.invoice2 td {
+    padding: 5px 0;
+}
+
+.invoice2 .invoice2-items {
+    width: 100%;
+}
+
+.invoice2 .invoice2-items td {
+    border-top: white 1px solid;
+}
+
+.invoice2 .invoice2-items .total td {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
+}
+
+.parent {
+    display: grid;
+    place-items: center;
+    background-color: white;
+}
+
+
+
+/* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
+@media only screen and (max-width: 640px) {
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 600 !important;
+        margin: 20px 0 5px !important;
+    }
+
+    h1 {
+        font-size: 22px !important;
+    }
+
+    h2 {
+        font-size: 18px !important;
+    }
+
+    h3 {
+        font-size: 16px !important;
+    }
+
+    .containerde {
+        width: 100% !important;
+    }
+
+    .content2,
+    .content2-wrap {
+        padding: 10px !important;
+    }
+
+    .invoice2 {
+        width: 100% !important;
+    }
+}
