@@ -42,7 +42,7 @@ export const CardWorker = ({ _id, name, surname, username, phone, email, role, g
   return (
     <>
       <div className="card m-3 g-0 text-center" style={{ maxWidth: '19rem', maxHeight: '30rem' }}>
-        <div className="card-body" style={{backgroundColor: '#E6F4DE'}}>
+        <div className="card-body" style={{backgroundColor: '#E3DAC9'}}>
           <h5 className="card-title">Name</h5>
           <p className="card-title">{name}</p>
           <h5 className="card-title">Surname</h5>

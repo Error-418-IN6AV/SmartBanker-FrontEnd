@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Navbar } from '../../components/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../Index'
+import { AuthContext } from '../../index'
 import Logo from '../../assets/Logo.jpg'
 
 export const LoginPage = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import './DashboardStyle.css'
 import { Outlet, useNavigate, Link } from 'react-router-dom'
-import { AuthContext } from '../Index'
+import { AuthContext } from '../index'
 
 export const DashboardPage = ({ _id }) => {
 
@@ -151,14 +151,10 @@ export const DashboardPage = ({ _id }) => {
                             </ul>
                             <ul className='side-menu top'>
                                 <li>
-                                    <button>
-                                        <span className='text'>Welcome: {dataUser.username}, {dataUser.role}</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <Link to=''>
+                                    <Link to='setting'>
+
                                         <button>
-                                            <span className='text'>Setting</span>
+                                            <span className='text'>Welcome: {dataUser.username}, {dataUser.role}</span>
                                         </button>
                                     </Link>
                                 </li>

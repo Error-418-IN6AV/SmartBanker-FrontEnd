@@ -27,6 +27,8 @@ import { ComprasPage } from './pages/compra/ComprasPage';
 import { DepositPage } from './pages/Deposit/DepositPage';
 import { Images } from './pages/Products/Images';
 import { BillDeposit } from './pages/Deposit/BillDeposit';
+import { SettingPage } from './pages/Setting/SettingPage';
+import { ListSentting } from './pages/Setting/ListSentting';
 
 export const AuthContext = createContext();
 
@@ -34,8 +36,18 @@ export const Index = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [dataUser, setDataUser] = useState({
     name: '',
+    surname: '',
     username: '',
-    role: ''
+    phone: '',
+    dpi: '',
+    nocuenta: '',
+    balance: '',
+    email: '',
+    namework: '',
+    location: '',
+    movements: '',
+    role: '',
+    id: ''
   })
   useEffect(() => {
     let token = localStorage.getItem('token')
@@ -190,7 +202,18 @@ export const Index = () => {
             {
               path: 'images/:id',
               element: <Images></Images>
-            }
+            },
+            {
+              path: 'setting',
+              element: <SettingPage></SettingPage>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <ListSentting></ListSentting>
+                }
+              ]
+            },
 
           ]
         }

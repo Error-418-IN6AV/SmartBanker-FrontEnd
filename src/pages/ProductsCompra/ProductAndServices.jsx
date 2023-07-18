@@ -31,7 +31,7 @@ export const ProductAndServices = () => {
 
   const logOut = (_id) => {
 
-    navigate(`/dashboard/compras/${_id}`)
+    navigate(`/dashboard/compr/${_id}`)
 
   }
 

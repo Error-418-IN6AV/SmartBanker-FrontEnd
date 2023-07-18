@@ -36,9 +36,23 @@ export const ListWorker = () => {
       }
       const { data } = await axios.post('http://localhost:3000/user/addWorker', worker, { headers: headers })
       getWorker()
+      resetaddworker()
       alert(data.message)
     } catch (err) {
       alert(err.response.data.message)
+    }
+  }
+
+  const resetaddworker = async () => {
+    try {
+      document.getElementById('inputName').value = '',
+        document.getElementById('inputSurname').value = '',
+        document.getElementById('inputUsername').value = '',
+        document.getElementById('inputPhone').value = '',
+        document.getElementById('inputEmail').value = '',
+        document.getElementById('inputPassword').value = ''
+    } catch (error) {
+      console.log(error)
     }
   }
 

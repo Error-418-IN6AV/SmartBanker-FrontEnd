@@ -46,9 +46,20 @@ export const ListTransfer = () => {
             }
             const { data } = await axios.post('http://localhost:3000/transfers/save', transfer, { headers: headers })
             getTransfer()
+            resetaddtrasnfer()
             alert(data.message)
         } catch (err) {
             alert(err.response.data.message)
+        }
+    }
+
+    const resetaddtrasnfer = async () => {
+        try {
+            document.getElementById('inputNoCuenta').value = '',
+                document.getElementById('inputDPI').value = '',
+                document.getElementById('inputMonto').value = ''
+        } catch (error) {
+            console.log(error)
         }
     }
 

@@ -25,14 +25,10 @@ export const UpdateClient = () => {
     const updateClient = async () => {
         try {
             let updateClient = {
-                name: document.getElementById('inputName').value,
                 surname: document.getElementById('inputSurname').value,
                 username: document.getElementById('inputUsername').value,
-                dpi: document.getElementById('inputDPI').value,
-                location: document.getElementById('inputLocation').value,
                 phone: document.getElementById('inputPhone').value,
-                email: document.getElementById('inputEmail').value,
-                namework: document.getElementById('inputNamework').value
+                email: document.getElementById('inputEmail').value
             }
             const { data } = await axios.put(`http://localhost:3000/user/update/${id}`, updateClient, { headers: headers })
             console.log(data)
@@ -56,11 +52,6 @@ export const UpdateClient = () => {
                             </div>
                             <br />
                             <div className="form-floating">
-                                <input defaultValue={user.name} type="text" id="inputName" name='name' className="form-control" placeholder='text' />
-                                <label className="form-label" htmlFor="inputName">Name</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
                                 <input defaultValue={user.surname} type="text" id="inputSurname" name='surname' className="form-control" placeholder='text' />
                                 <label className="form-label" htmlFor="inputSurname">Surname</label>
                             </div>
@@ -68,16 +59,6 @@ export const UpdateClient = () => {
                             <div className="form-floating">
                                 <input defaultValue={user.username} type="text" id="inputUsername" name='username' className="form-control" placeholder='text' />
                                 <label className="form-label" htmlFor="inputUsername">Username</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input defaultValue={user.dpi} type="number" id="inputDPI" name='dpi' className="form-control" placeholder='number' />
-                                <label className="form-label" htmlFor="inputDPI">DPI</label>
-                            </div>
-                            <br/>
-                            <div className="form-floating">
-                                <input defaultValue={user.location} type="text" id="inputLocation" name='location' className="form-control" placeholder='text' />
-                                <label className="form-label" htmlFor="inputLocation">Location</label>
                             </div>
                             <br />
                             <div className="form-floating">
@@ -90,14 +71,6 @@ export const UpdateClient = () => {
                                 <label className="form-label" htmlFor="inputEmail">Email</label>
                             </div>
                             <br />
-                            <div className="form-floating">
-                                <input defaultValue={user.namework} type="text" id="inputNamework" name='namework' className="form-control" placeholder='text' />
-                                <label className="form-label" htmlFor="inputNameWork">Name Work</label>
-                            </div>
-                        
-                            
-                            <br />
-                            
                             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <Link to="/dashboard/client">
                                     <button onClick={() => updateClient()} className="btn btn-success">UPDATE</button>

@@ -42,7 +42,7 @@ export const CardClient = ({ _id, name, surname, username, dpi, nocuenta, locati
   return (
     <>
       <div className="card m-3 g-0" style={{ maxWidth: '20rem', maxHeight: '30rem' }}>
-        <div className="card-body">
+        <div className="card-body" style={{ backgroundColor: '#E3DAC9' }}>
           <div className='text-center'>
             <h5 className="card-title">Name</h5>
             <p className="card-title">{name}</p>
@@ -62,17 +62,17 @@ export const CardClient = ({ _id, name, surname, username, dpi, nocuenta, locati
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target={`#info${_id}`} style={{ color: "#FFF" }}>User Info</button>
             <Link to={`updateClient/${_id}`} type="button" className="btn btn-success">Update</Link>
-            <a onClick={() => deleteClient(_id)} type="button" className="btn btn-danger">Delete</a>
+            <button onClick={() => deleteClient(_id)} type="button" className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
       <div className="modal fade" id={`info${_id}`} aria-labelledby="infoLabel" aria-hidden="true" style={{ marginTop: '12vh', marginLeft: '9vw' }}>
         <div className="modal-dialog">
           <div className="modal-content">
-            <h3 className="text-center modal-title">Info Client</h3>
+            <h1 className="text-center modal-title">Info {name}</h1>
             <div className=' modal-body text-center'>
               <h5 className="card-title">Phone</h5>
-              <p className="card-title">{phone}</p>
+              <p className="card-title">+502 {phone}</p>
               <h5 className="card-title">Email</h5>
               <p className="card-title">{email}</p>
               <h5 className="card-title">Location</h5>
