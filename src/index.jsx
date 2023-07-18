@@ -29,6 +29,9 @@ import { Images } from './pages/Products/Images';
 import { BillDeposit } from './pages/Deposit/BillDeposit';
 import { SettingPage } from './pages/Setting/SettingPage';
 import { ListSentting } from './pages/Setting/ListSentting';
+import { Estadistic } from './pages/Estadistic/Estadistic';
+import { ListEstadistic } from './pages/Estadistic/ListEstadistic';
+import { Estadisticc } from './pages/Estadistic/Estadisticc';
 
 export const AuthContext = createContext();
 
@@ -196,7 +199,7 @@ export const Index = () => {
               element: <DepositPage></DepositPage>
             },
             {
-              path: 'billDeposit/:id', 
+              path: 'billDeposit/:id',
               element: <BillDeposit></BillDeposit>
             },
             {
@@ -214,7 +217,21 @@ export const Index = () => {
                 }
               ]
             },
-
+            {
+              path: 'estadistic',
+              element: <Estadistic></Estadistic>,
+              children: [
+                {
+                  path: '',
+                  exact: true,
+                  element: <ListEstadistic></ListEstadistic>
+                },
+                {
+                  path: 'estadisticc',
+                  element: <Estadisticc />
+                }
+              ]
+            },
           ]
         }
       ]

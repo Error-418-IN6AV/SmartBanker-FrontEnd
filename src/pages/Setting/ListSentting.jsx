@@ -1,12 +1,8 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../../index'
 
 export const ListSentting = () => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': localStorage.getItem('token')
-  }
 
   return (
     <>

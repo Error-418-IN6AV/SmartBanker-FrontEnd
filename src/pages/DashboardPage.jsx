@@ -30,6 +30,28 @@ export const DashboardPage = ({ _id }) => {
                                 {
                                     dataUser.role == 'ADMIN' ? (
                                         <li>
+                                            <Link to='estadistic'>
+                                                <button>
+                                                    <span className='text'>Estadistic Client</span>
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ) : <></>
+                                }
+                                {
+                                    dataUser.role == 'WORKER' ? (
+                                        <li>
+                                            <Link to='estadistic'>
+                                                <button>
+                                                    <span className='text'>Estadistic Client</span>
+                                                </button>
+                                            </Link>
+                                        </li>
+                                    ) : <></>
+                                }
+                                {
+                                    dataUser.role == 'ADMIN' ? (
+                                        <li>
                                             <Link to='worker'>
                                                 <button>
                                                     <span className='text'>Add Workers</span>

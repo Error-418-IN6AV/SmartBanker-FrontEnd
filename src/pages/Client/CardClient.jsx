@@ -41,7 +41,7 @@ export const CardClient = ({ _id, name, surname, username, dpi, nocuenta, locati
 
   return (
     <>
-      <div className="card m-3 g-0" style={{ maxWidth: '20rem', maxHeight: '30rem' }}>
+      <div className="card m-3 g-0" style={{ maxWidth: '20rem', maxHeight: '45rem' }}>
         <div className="card-body" style={{ backgroundColor: '#E3DAC9' }}>
           <div className='text-center'>
             <h5 className="card-title">Name</h5>

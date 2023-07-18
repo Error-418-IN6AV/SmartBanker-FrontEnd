@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 
 export const ListTransfer = () => {
     const [transfers, settransfers] = useState([{}])
+    const [favorites, setFavorites] = useState([{}])
+    const [monto, setMonto] = useState('');
+
     const [client, setclient] = useState([{}])
+    const [selectedFavoriteId, setSelectedFavoriteId] = useState(null);
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
@@ -46,25 +50,62 @@ export const ListTransfer = () => {
             }
             const { data } = await axios.post('http://localhost:3000/transfers/save', transfer, { headers: headers })
             getTransfer()
-            resetaddtrasnfer()
             alert(data.message)
         } catch (err) {
             alert(err.response.data.message)
         }
     }
 
-    const resetaddtrasnfer = async () => {
+    const gets = async () => {
         try {
-            document.getElementById('inputNoCuenta').value = '',
-                document.getElementById('inputDPI').value = '',
-                document.getElementById('inputMonto').value = ''
-        } catch (error) {
-            console.log(error)
+            const { data } = await axios('http://localhost:3000/favorites/gets', { headers: headers })
+            if (data.favorites) {
+                setFavorites(data.favorites)
+                console.log(data.favorites)
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error(err.response.message || 'Error getting favorites')
         }
     }
 
+    const handleFavoriteSelect = (e) => {
+        setSelectedFavoriteId(e.target.value);
+    };
+
+    const addTransferByFavorite = async () => {
+        try {
+            if (!selectedFavoriteId) {
+                alert('Seleccione un favorito para realizar la transferencia.');
+                return;
+            }
+            const selectedFavorite = favorites.find(
+                (favorite) => favorite._id === selectedFavoriteId
+            );
+            if (!selectedFavorite) {
+                alert('Favorito no encontrado.');
+                return;
+            }
+            let transfer = {
+                nocuenta: selectedFavorite.nocuenta,
+                dpi: selectedFavorite.dpi,
+                monto: monto
+            };
+            const { data } = await axios.post(
+                'http://localhost:3000/transfers/save',
+                transfer,
+                { headers: headers }
+            );
+            getTransfer();
+            alert(data.message);
+        } catch (err) {
+            alert(err.response.data.message);
+        }
+    };
+
     useEffect(() => {
         getTransfer();
+        gets();
         getClient();
     }, [])
     return (
@@ -79,6 +120,8 @@ export const ListTransfer = () => {
                         | Transfers</h1>
                     <div className='text-center'>
                         <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Tranfers</button>
+                        <br />
+                        <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2">Add Tranfers by Favorite</button>
                     </div>
                 </div>
                 <div className="row g-0 justify-content-center">
@@ -125,6 +168,43 @@ export const ListTransfer = () => {
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
                             <Link to='/dashboard/transfer'>
                                 <button onClick={addtransfer} type="button" className="btn btn-primary" data-bs-dismiss="modal">ADD TRANSFER</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="exampleModal2" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ marginTop: '10vh', marginLeft: '9vw' }}>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <h3 className="text-center modal-title">TRANSFER BY FAVORITE</h3>
+
+                        <div className='modal-body' >
+                            <div className="mb-3">
+                                <label className="form-label">Favorite</label>
+                                <select className="form-control"
+                                    onChange={handleFavoriteSelect}
+                                    value={selectedFavoriteId || ''} >
+                                    {
+                                        favorites && favorites.map(({ _id, nocuenta }, i) => {
+                                            return (
+                                                <option key={i} value={_id}>{nocuenta}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <br />
+                            <div className="form-floating">
+                                <input type="number" id="inputMonto" name='number' className="form-control" placeholder='number' onChange={(e) => setMonto(e.target.value)} />
+                                <label className="form-label" htmlFor="inputMonto">Amount</label>
+                            </div>
+
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                            <Link to='/dashboard/transfer'>
+                                <button onClick={addTransferByFavorite} type="button" className="btn btn-primary" data-bs-dismiss="modal">ADD TRANSFER</button>
                             </Link>
                         </div>
                     </div>
