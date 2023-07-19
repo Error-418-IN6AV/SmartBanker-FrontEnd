@@ -1,8 +1,26 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../index'
+import { Link, useParams } from 'react-router-dom'
 
-export const ListSentting = () => {
+export const ListSentting = ({ _id }) => {
   const { setLoggedIn, dataUser } = useContext(AuthContext);
+  const { id } = useParams();
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+  }
+
+  const updateuser = async () => {
+    try {
+      let updateuser = {
+        password: document.getElementById('inputPassword').value
+      }
+      const { data } = await axios.put(`http://localhost:3000/user/update/${id}`, updateuser, { headers: headers })
+      console.log(data)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <>
